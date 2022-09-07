@@ -1,0 +1,207 @@
+﻿@page
+@model Taller.App.Front.Pages.OpVehiculosModel
+@{
+}
+<br>
+<div class="row text-center">
+    <div class="col-4">
+        <h4 class="border border-warning border-2 border-top-0 border-start-0 pb-1"><b>VEHICULOS</b></h4>
+    </div>
+</div>
+<br>
+<div class="row justify-content-end">
+    <div class="col-md-3 col-sm-12">
+        <div class="d-grid gap-2">
+            <button class="btn btn-warning border border-dark" type="button" data-bs-toggle="modal"
+                data-bs-target="#ModalOpVehiculo"><i class="bi bi-car-front"></i> Nuevo vehiculo</button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="card shadow text-center">
+    <div class="card-body">
+        <table class="table table-sm ">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Capacidad</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>ABC123</td>
+                    <td>Microbus</td>
+                    <td>Mazda</td>
+                    <td>2020</td>
+                    <td>10 pasajeros</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalOpVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>ABC123</td>
+                    <td>Microbus</td>
+                    <td>Mazda</td>
+                    <td>2020</td>
+                    <td>12 pasajeros</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalOpVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>ABC123</td>
+                    <td>Buseta</td>
+                    <td>Mazda</td>
+                    <td>2015</td>
+                    <td>15 pasajeros</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalOpVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalOpVehiculo" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title text-dark" id="exampleModalLabel">Nuevo Vehículo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id=opVehiculo>
+                    <label for="placa" class="form-label"><b>Placa</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="placa"
+                        placeholder="Ingresa tu placa">
+                    <br>
+                    <label for="tipo" class="form-label"><b>Tipo</b></label>
+                    <select class="form-select border border-dark p-2" id="tipo">
+                        <option selected>Seleccione</option>
+                        <option value="buseta">Buseta</option>
+                        <option value="microbus">Microbús</option>
+                    </select>
+                    <br>
+                    <label for="modelo" class="form-label"><b>Modelo</b></label>
+                    <select class="form-select border border-dark p-2" id="modelo">
+                        <option selected>Seleccione</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                    <br>
+                    <label for="pasajeros" class="form-label"><b>Capacidad de pasajeros</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="pasajeros"
+                        placeholder="Ingresa número de pasajeros">
+                    <br>
+                    <label for="cilindraje" class="form-label"><b>Cilindraje</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="cilindraje"
+                        placeholder="Ingresa cilindraje">
+                    <br>
+                    <label for="origen" class="form-label"><b>Ciudad de origen</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="origen"
+                        placeholder="Ingresa ciudad de origen">
+                    <br>
+                    <label for="caracteristicas" class="form-label"><b>Otras caracteristicas</b></label>
+                    <textarea class="form-control border border-dark p-2" id="caracteristicas" rows="3"></textarea>
+                    <br>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-light text-dark border border-warning"><i
+                                class="bi bi-person-circle"></i>
+                            Agregar Dueño</button>
+                    </div>
+                </div>
+                <div id=opDueno hidden>
+                    <label for="documento" class="form-label"><b>Documento de identidad</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="documento"
+                        placeholder="Ingresa tu documento de identidad">
+                    <br>
+                    <label for="nombres" class="form-label"><b>Nombres</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="nombres"
+                        placeholder="Ingresa nombre">
+                    <br>
+                    <label for="apellidos" class="form-label"><b>Apellidos</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="apellidos"
+                        placeholder="Ingresa apellidos">
+                    <br>
+                    <label for="fecha_nacimiento" class="form-label"><b>Fecha de nacimiento</b></label>
+                    <input type="date" class="form-control border border-dark p-2" id="fecha_nacimiento"
+                        placeholder="Ingresa fecha de nacimiento">
+                    <br>
+                    <label for="direccion" class="form-label"><b>Dirección</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="direccion"
+                        placeholder="Ingresa tu dirección">
+                    <br>
+                    <label for="celular" class="form-label"><b>Celular</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="celular"
+                        placeholder="Ingresa tu celular">
+                    <br>
+                    <label for="ciudad" class="form-label"><b>Ciudad</b></label>
+                    <input type="text" class="form-control border border-dark p-2" id="ciudad"
+                        placeholder="Ingresa ciudad">
+                    <br>
+                    <label for="email" class="form-label"><b>Email</b></label>
+                    <input type="email" class="form-control border border-dark p-2" id="email"
+                        placeholder="Ingresa tu email">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                    Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-square"></i>
+                    Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="ModalVerOpVehiculo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title" id="exampleModalLabel">Información de vehiculo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <h3>Placa <span class="badge bg-warning text-dark"> ABC123</span></h3>
+                <h5>Tipo <br> <span class="badge bg-secondary">Buseta</span></h5>
+                <h5>Modelo <br> <span class="badge bg-secondary">2015</span></h5>
+                <h5>Capacidad pasajeros <br> <span class="badge bg-secondary">15 pasajeros</span></h5>
+                <h5>Cilindraje <br> <span class="badge bg-secondary">3500</span></h5>
+                <h5>Ciudad origen <br> <span class="badge bg-secondary">EEUU</span></h5>
+                <h5>Otras caracteristicas <br> <span class="badge bg-secondary">Aire acondicionado</span></h5>
+            </div>
+        </div>
+    </div>
+</div>

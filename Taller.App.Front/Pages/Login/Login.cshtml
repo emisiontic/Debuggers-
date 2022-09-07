@@ -1,0 +1,28 @@
+﻿@page
+@model Taller.App.Front.Pages.LoginModel
+@{
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-12 shadow bg-light p-4 rounded border border-secondary">
+            <h2 class="text-center">Inicio de sesión</h2>
+            <hr>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Email">
+                    <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+                <br>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-secondary" type="button">Ingresar</button>
+                </div>
+            <br>
+            <div class="text-center">
+                <p>Eres nuevo? <a class="bg-warning text-white p-1 rounded text-decoration-none border border-dark" href="/Login/Registro">Regístrate</a></p>
+            </div>
+        </div>
+    </div>
+</div>
