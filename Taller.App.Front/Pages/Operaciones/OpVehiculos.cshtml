@@ -21,10 +21,18 @@
 
 <div class="card shadow text-center">
     <div class="card-body">
-        <table class="table table-sm ">
+        @if (Model.vehiculos.Count == 0)
+        {
+            
+            <div class="alert alert-warning" role="alert">
+                No existen vehículos registrados
+            </div>
+        }
+        else
+        {
+            <table class="table table-sm ">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Placa</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Marca</th>
@@ -34,13 +42,15 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var m in Model.vehiculos)
+                    {
+
                 <tr>
-                    <th scope="row">1</th>
-                    <td>ABC123</td>
-                    <td>Microbus</td>
-                    <td>Mazda</td>
-                    <td>2020</td>
-                    <td>10 pasajeros</td>
+                    <td>@m.Id</td>
+                    <td>@m.Tipo</td>
+                    <td>@m.Marca</td>
+                    <td>@m.Modelo</td>
+                    <td>@m.Capacidad_pasajeros pasajeros</td>
                     <td>
                         <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
                             data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
@@ -48,36 +58,13 @@
                             data-bs-target="#ModalOpVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>ABC123</td>
-                    <td>Microbus</td>
-                    <td>Mazda</td>
-                    <td>2020</td>
-                    <td>12 pasajeros</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
-                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalOpVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>ABC123</td>
-                    <td>Buseta</td>
-                    <td>Mazda</td>
-                    <td>2015</td>
-                    <td>15 pasajeros</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
-                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalOpVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
-                    </td>
-                </tr>
+                    }
+                
             </tbody>
         </table>
+
+        }
+        
     </div>
 </div>
 
