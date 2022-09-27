@@ -1,0 +1,57 @@
+﻿@page
+@model Taller.App.Front.Pages.RevisionesModel
+@{
+}
+<br>
+<div class="row text-center">
+    <div class="col-4">
+        <h4 class="border border-warning border-2 border-top-0 border-start-0 pb-1"><b>MIS REVISIONES</b></h4>
+    </div>
+</div>
+<br>
+<div class="row justify-content-end">
+    <div class="col-md-3 col-sm-12">
+        <div class="d-grid gap-2">
+            <a asp-page="/Usuarios/AddRevision" class="btn btn-warning border border-dark" type="button"
+                ><i class="bi bi-car-front"></i> Nueva Revisión</a>
+            </div>
+    </div>
+</div>
+<br>
+
+<div class="card shadow text-center">
+    <div class="card-body">
+        <table class="table table-sm ">
+            <thead>
+                <tr>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.revisiones)
+                    {
+
+                <tr>
+                    <td>@m.Placa</td>
+                    <td>@m.Fecha</td>
+                    <td>@m.Hora</td>
+                    <td>@m.Estado</td>
+                    <td>
+                                <a type="button" 
+                                class="btn btn-outline-secondary btn-sm" asp-page="/Operaciones/EditVehiculo"
+                                asp-route-id = "@m.Id"><i class="bi bi-pencil-square"></i>Editar</a>
+                                <form method="POST">
+                                <button type="submit" asp-route-id ="@m.Id" asp-page-handler ="Delete" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Eliminar</button>
+                                </form>
+                    </td>
+                </tr>
+                    }
+                
+            </tbody>
+        </table>
+    </div>
+</div>

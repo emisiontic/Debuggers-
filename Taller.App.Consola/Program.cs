@@ -20,14 +20,14 @@ namespace Taller.App.Consola
 
         static void Main(string[] args)
         {
-            // AgregarMecanico();
+            AgregarMecanico();
             // ObtenerMecanicos();
             // BuscarMecanico("4");
             // EliminarMecanico("1");
             // EditarMecanico();
 
             // AgregarDueno();
-            ObtenerDuenos();
+            // ObtenerDuenos();
             // BuscarDueno("5");
             // EliminarDueno("1");
             // EditarDueno();
@@ -44,7 +44,7 @@ namespace Taller.App.Consola
         {
             var mecanicoNuevo = new Mecanico
             {
-                Id = "1",
+                Id = "6",
                 Nombre = "Pedro",
                 Telefono = "3207199861",
                 FechaNacimiento = "19/08/1984",
@@ -264,7 +264,12 @@ namespace Taller.App.Consola
             var placa = repositorioV.BuscarVehiculo(id);
             if (placa != null)
             {
-                Console.WriteLine("Se encontro la placa:" + placa.Id);
+                Console.WriteLine("Placa:" + placa.Id);
+                Console.WriteLine("Tipo:" + placa.Tipo);
+                Console.WriteLine("Marca:" + placa.Marca);
+                Console.WriteLine("Modelo:" + placa.Modelo);
+                Console.WriteLine("Capacidad Pasajeros:" + placa.Capacidad_pasajeros);
+                Console.WriteLine("Cilindraje:" + placa.Cilindraje);
             }
             else
             {
@@ -285,7 +290,7 @@ namespace Taller.App.Consola
         {
             var vehiculoNuevo = new Vehiculo
             {
-                Id = "1",
+                Id = "5",
                 Tipo = "Buseta",
                 Marca = "Mazda",
                 Modelo = "2022",

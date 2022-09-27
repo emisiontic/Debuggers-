@@ -1,0 +1,75 @@
+﻿@page
+@model Taller.App.Front.Pages.AddRevisionModel
+@{
+}
+<div class="row">
+    <a asp-page="/Usuarios/Revisiones" class="text-decoration-none"><i class="bi bi-arrow-90deg-left"> Regresar</i></a>
+    <h2 class="text-center">Nueva Revisión</h2>
+    <hr>
+<div class="col-md-6 mx-auto p-3 shadow">
+    <form method="post">
+
+        <label for="placa" class="form-label"><b>Seleccione placa</b></label>
+                    <select class="form-select border border-dark p-2" id="recipient-name"
+                    name="Placa">
+                    <option selected value="">Seleccione</option>
+                    @foreach (var n in Model.vehiculos)
+                    {
+                        <option value="@n.Id">@n.Id.ToString().ToUpper()</option>
+                    }
+                </select>
+                    <br>
+                    <label for="fecha" class="form-label"><b>Fecha</b></label>
+                    <input type="date" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    name="Fecha"
+                    placeholder="Ingresa fecha">
+                    <br>
+                    <label for="hora" class="form-label"><b>Hora</b></label>
+                    <input type="time" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    name="Hora"
+                    placeholder="Ingresa hora">
+                    <br>
+                    <label for="tipo_servicio" class="form-label"><b>Tipo de servicio</b></label>
+                    <select class="form-select border border-dark p-2" id="Servicio">
+                        <option selected>Seleccione</option>
+                        <option value="revision mecanica">Revisión mecánica</option>
+                        <option value="revisión electrica">Revisión eléctrica</option>
+                        <option value="montallantas">Montallantas</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                    <br>
+                    <label for="sede" class="form-label"><b>Sede</b></label>
+                    <select class="form-select border border-dark p-2" id="sede" name="Sede">
+                        <option selected>Seleccione</option>
+                        <option value="armenia">Armenia</option>
+                        <option value="barranquilla">Barranquilla</option>
+                        <option value="bogota">Bogotá</option>
+                        <option value="cali">Cali</option>
+                        <option value="manizales">Manizales</option>
+                        <option value="medellin">Medellín</option>
+                        <option value="pasto">Pasto</option>
+                        <option value="pereira">Pereira</option>
+                    </select>
+                    <br>
+                    <label for="estado" class="form-label" hidden><b>Estado</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    name="Estado"
+                    value="registrado"
+                    placeholder="Ingresa número de pasajeros" hidden>
+                    <br>
+                <div>
+                    <br>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">    
+                <button type="submit" asp-page-handler="Add" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                    Guardar</button>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-x-square"></i>
+                    Cancelar</button>
+                </div>
+            </div>
+            </form>
+</div>
+</div>
+        

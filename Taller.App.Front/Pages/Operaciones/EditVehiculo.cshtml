@@ -1,0 +1,90 @@
+﻿@page
+@model Taller.App.Front.Pages.EditVehiculoModel
+@{
+    int counter = 1949;
+}
+<a asp-page="/Operaciones/OpVehiculos" class="text-decoration-none"><i class="bi bi-arrow-90deg-left"> Regresar</i></a>
+<form method="post">
+    
+            <div class="row justify-content-md-center">
+                <h1 class= "text-center">Editar Mecanico</h1>
+                <div class="col-md-6 off shadow rounded border border-1 p-3">
+                    <label for="placa" class="form-label"><b>Placa</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    name="Id"
+                    asp-for = "@Model.vehiculoActual.Id"
+                    placeholder="Ingresa tu placa"
+                    readonly>
+                    <br>
+                    <label for="tipo" class="form-label"><b>Tipo</b></label>
+                    <select class="form-select border border-dark p-2"
+                     id="recipient-name"
+                     asp-for = "@Model.vehiculoActual.Tipo"
+                     name = "Tipo">
+                        <option selected>Seleccione</option>
+                        <option value="buseta">Buseta</option>
+                        <option value="microbus">Microbús</option>
+                    </select>
+                    <br>
+                    <label for="marca" class="form-label"><b>Marca</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    asp-for = "@Model.vehiculoActual.Marca"
+                    name="Marca"
+                    placeholder="Ingresa tu marca">
+                    <br>
+                    <label for="modelo" class="form-label"><b>Modelo</b></label>
+                    <select class="form-select border border-dark p-2" 
+                    id="recipient-name"
+                    asp-for = "@Model.vehiculoActual.Modelo"
+                    name="Modelo">
+                    @for(var i = 1950; i<=2023; i++)
+                    {
+                       counter = counter + 1 ;
+                       <option value="@counter">@counter</option>  
+                    }
+                    </select>
+                    <br>
+                    <label for="pasajeros" class="form-label"><b>Capacidad de pasajeros</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    name="Capacidad_pasajeros"
+                    asp-for = "@Model.vehiculoActual.Capacidad_pasajeros"
+                    placeholder="Ingresa número de pasajeros">
+                    <br>
+                    <label for="cilindraje" class="form-label"><b>Cilindraje</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    asp-for = "@Model.vehiculoActual.Cilindraje"
+                    name="Cilindraje"
+                    placeholder="Ingresa cilindraje">
+                    <br>
+                    <label for="origen" class="form-label"><b>Ciudad de origen</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    name="Pais_origen"
+                    asp-for = "@Model.vehiculoActual.Pais_origen"
+                    placeholder="Ingresa ciudad de origen">
+                    <br>
+                    <label for="caracteristicas" class="form-label"><b>Otras caracteristicas</b></label>
+                    <textarea class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    asp-for = "@Model.vehiculoActual.Carateristicas"
+                    name="Carateristicas" 
+                    rows="3"></textarea>
+                    <br>
+                    <label for="dueno" class="form-label" hidden><b>Seleccione dueño</b></label>
+                    <input type="text" class="form-control border border-dark p-2" 
+                    id="recipient-name"
+                    asp-for = "@Model.vehiculoActual.DuenoId"
+                    name="DuenoId"
+                    hidden>
+            <div class="modal-footer">
+                <button type="submit" asp-page-handler="Edit" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                    Actualizar</button>
+                
+            </div>
+            </div>
+            </div>
+        </form>

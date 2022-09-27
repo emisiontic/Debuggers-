@@ -1,0 +1,77 @@
+﻿@page
+@model Taller.App.Front.Pages.EditUsuarioModel
+@{
+}
+<a asp-page="/Operaciones/Usuarios" class="text-decoration-none"><i class="bi bi-arrow-90deg-left"> Regresar</i></a>
+<form method="post">
+    
+            <div class="row justify-content-md-center">
+                <h1 class= "text-center">Editar Dueño</h1>
+                <div class="col-md-6 off shadow rounded border border-1 p-3">
+                <label for="documento" class="form-label"><b>Documento de identidad</b></label>
+                <input type="text"
+                 class="form-control border border-dark p-2" 
+                 id="recipient-name"
+                 name="Id"
+                 asp-for = "@Model.duenoActual.Id"
+                 placeholder="Ingresa tu documento de identidad"
+                 readonly>
+                <br>
+                <label for="nombres" class="form-label"><b>Nombres</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa nombre"
+                asp-for = "@Model.duenoActual.Nombre"
+                name="Nombre">
+                <br>
+                <label for="fecha_nacimiento" class="form-label"><b>Fecha de nacimiento</b></label>
+                <input type="date" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa fecha de nacimiento"
+                asp-for = "@Model.duenoActual.FechaNacimiento"
+                name="FechaNacimiento">
+                <br>
+                <label for="telefono" class="form-label"><b>Telefono</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu celular"
+                asp-for = "@Model.duenoActual.Telefono"
+                name="Telefono">
+                <br>
+                <label for="ciudad" class="form-label"><b>Ciudad</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu ciudad"
+                asp-for = "@Model.duenoActual.Ciudad"
+                name="Ciudad">
+                <br>
+                <label for="correo" class="form-label"><b>Correo</b></label>
+                <input type="email" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                asp-for = "@Model.duenoActual.Correo"
+                placeholder="Ingresa tu correo"
+                name="Correo">
+                <br>
+                <label for="contrasenia" class="form-label" hidden><b>Contraseña</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                asp-for = "@Model.duenoActual.Contrasenia" 
+                placeholder="Ingresa contraseña"
+                name="Contrasenia"
+                hidden>
+                <br>
+            
+            <div class="modal-footer">
+                <button type="submit" asp-page-handler="Edit" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                    Actualizar</button>
+                
+            </div>
+            </div>
+            </div>
+        </form>

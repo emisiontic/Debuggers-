@@ -10,27 +10,40 @@ namespace Taller.App.Front.Pages
         private static RepositorioVehiculo repositorio = new RepositorioVehiculo(
             new Persistencia.ContextDb()
         );
-        public List<Vehiculo> vehiculos = new List<Vehiculo>();
-        public void OnGet()
+
+        public IEnumerable<Vehiculo> vehiculos;
+
+        public void OnGet(string id)
         {
+             
+
+            if(id != null)
+            {
+                ObtenerVehiculos(id);
+            }else{
+
             ObtenerVehiculos();
+            }
+                
+           
         }
 
         private void ObtenerVehiculos()
         {
-            foreach (var vehiculo in repositorio.ObtenerVehiculos())
-            {
-                this.vehiculos.Add(
-                    new Vehiculo()
-                    {
-                        Id =        vehiculo.Id,
-                        Tipo =      vehiculo.Tipo,
-                        Marca =     vehiculo.Marca,
-                        Modelo =    vehiculo.Modelo,
-                        Capacidad_pasajeros = vehiculo.Capacidad_pasajeros
-                    }
-                );
-            }
+            this.vehiculos = (IEnumerable<Vehiculo>)repositorio.ObtenerVehiculos();
         }
+
+        private void ObtenerVehiculos(string id)
+        {
+            this.vehiculos = (IEnumerable<Vehiculo>)repositorio.ObtenerVehiculos(id);
+        }
+
+        public void OnPostDelete(string id)
+        {
+            repositorio.EliminarVehiculo(id);
+            this.ObtenerVehiculos();
+        }
+
+        
     }
 }

@@ -2,3 +2,138 @@
 @model Taller.App.Front.Pages.UsuariosModel
 @{
 }
+<br>
+<div class="row text-center">
+    <div class="col-4">
+        <h4 class="border border-warning border-2 border-top-0 border-start-0 pb-1"><b>DUEÑOS</b></h4>
+    </div>
+</div>
+<br>
+<div class="row justify-content-end">
+    <div class="col-md-3 col-sm-12">
+        <div class="d-grid gap-2">
+            <button class="btn btn-warning border border-dark" type="button" data-bs-toggle="modal"
+                data-bs-target="#ModalDueno"><i class="bi bi-person-circle"></i> Nuevo dueño</button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="card shadow text-center">
+    <div class="card-body">
+
+            <table class="table table-sm ">
+                <thead>
+                    <tr>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Télefono</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var m in Model.duenos)
+                    {
+
+                        <tr>
+                            <th>@m.Id</th>
+                            <td>@m.Nombre</td>
+                            <td>@m.Telefono</td>
+                            <td>@m.Ciudad</td>
+                            <td>@m.Correo</td>
+                            <td><button type="button" 
+                                class="btn btn-outline-success btn-sm" 
+                                data-bs-toggle="modal"
+                                data-bs-target="#ModalVerOpMecanico"><i class="bi bi-eye"></i>Ver</button>
+                                <a type="button" 
+                                class="btn btn-outline-secondary btn-sm" asp-page="/Operaciones/EditUsuario"
+                                asp-route-id = "@m.Id"><i class="bi bi-pencil-square"></i>Editar</a>
+                                <form method="POST">
+                                <button type="submit" asp-route-id ="@m.Id" asp-page-handler ="Delete" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="ModalDueno" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title text-dark" id="exampleModalLabel">Nuevo Mecanico</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <form method="post">
+            <div class="modal-body">
+                <label for="documento" class="form-label"><b>Documento de identidad</b></label>
+                <input type="text"
+                 class="form-control border border-dark p-2" 
+                 id="recipient-name"
+                 name="Id"
+                 placeholder="Ingresa tu documento de identidad"
+                 >
+                <br>
+                <label for="nombres" class="form-label"><b>Nombres</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa nombre"
+                name="Nombre">
+                <br>
+                <label for="fecha_nacimiento" class="form-label"><b>Fecha de nacimiento</b></label>
+                <input type="date" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa fecha de nacimiento"
+                name="FechaNacimiento">
+                <br>
+                <label for="telefono" class="form-label"><b>Telefono</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu celular"
+                name="Telefono">
+                <br>
+                <label for="ciudad" class="form-label"><b>Ciudad</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu ciudad"
+                name="Ciudad">
+                <br>
+                <label for="correo" class="form-label"><b>Correo</b></label>
+                <input type="email" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu correo"
+                name="Correo">
+                <br>
+                <label for="contrasenia" class="form-label"><b>Contraseña</b></label>
+                <input type="password" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name" 
+                placeholder="Ingresa ciudad"
+                name="Contrasenia">
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" asp-page-handler="Add" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                    Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-square"></i>
+                    Cancelar</button>
+            </div>
+        </form>
+        </div>
+
+    </div>
+</div>

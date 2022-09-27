@@ -23,7 +23,6 @@
     <table class="table table-sm ">
         <thead>
             <tr>
-            <th scope="col">#</th>
             <th scope="col">Placa</th>
             <th scope="col">Tipo</th>
             <th scope="col">Marca</th>
@@ -33,42 +32,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>ABC123</td>
-            <td>Microbus</td>
-            <td>Mazda</td>
-            <td>2020</td>
-            <td>10 pasajeros</td>
-            <td>
-            <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#ModalVerVehiculo"><i class="bi bi-eye"></i>Ver</button>
-            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalVehiculo"><i class="bi bi-pencil-square" ></i>Editar</button>
-            </td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>ABC123</td>
-            <td>Microbus</td>
-            <td>Mazda</td>
-            <td>2020</td>
-            <td>12 pasajeros</td>
-            <td>
-            <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#ModalVerVehiculo"><i class="bi bi-eye"></i>Ver</button>
-            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
-            </td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>ABC123</td>
-            <td>Buseta</td>
-            <td>Mazda</td>
-            <td>2015</td>
-            <td>15 pasajeros</td>
-            <td>
-            <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#ModalVerVehiculo"><i class="bi bi-eye" ></i>Ver</button>
-            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalVehiculo"><i class="bi bi-pencil-square"></i>Editar</button>
-            </td>
-            </tr>
+            @foreach (var m in Model.vehiculos)
+                    {
+
+                <tr>
+                    <td>@m.Id</td>
+                    <td>@m.Tipo</td>
+                    <td>@m.Marca</td>
+                    <td>@m.Modelo</td>
+                    <td>@m.Capacidad_pasajeros pasajeros</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
+                        <a type="button" 
+                                class="btn btn-outline-secondary btn-sm" asp-page="/Operaciones/EditVehiculo"
+                                asp-route-id = "@m.Id"><i class="bi bi-pencil-square"></i>Editar</a>
+                                <form method="POST">
+                                <button type="submit" asp-route-id ="@m.Id" asp-page-handler ="Delete" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Eliminar</button>
+                                </form>
+                    </td>
+                </tr>
+                    }
+            
         </tbody>
     </table>
   </div>

@@ -35,6 +35,13 @@ namespace Taller.App.Persistencia
             return this.contextDb.Mecanicos; 
         }
 
+        public IEnumerable<Mecanico> ObtenerMecanicos(string id)
+        {
+            var mecanico = BuscarMecanico(id);
+            this.contextDb.Entry(mecanico).Reload();
+            return this.contextDb.Mecanicos; 
+        }
+
         public Mecanico BuscarMecanico(string id)
         {
             return this.contextDb.Mecanicos.FirstOrDefault(m => m.Id == id);

@@ -1,79 +1,17 @@
 ﻿@page
-@model Taller.App.Front.Pages.OpVehiculosModel
+@model Taller.App.Front.Pages.AddVehiculoModel
 @{
-    
+    int counter = 1949;
 }
-<br>
-<div class="row text-center">
-    <div class="col-4">
-        <h4 class="border border-warning border-2 border-top-0 border-start-0 pb-1"><b>VEHICULOS</b></h4>
-    </div>
-</div>
-<br>
-<div class="row justify-content-end">
-    <div class="col-md-3 col-sm-12">
-        <div class="d-grid gap-2">
-            <a asp-page="/Operaciones/AddVehiculo" class="btn btn-warning border border-dark" type="button"
-                ><i class="bi bi-car-front"></i> Nuevo vehiculo</a>
-            </div>
-    </div>
-</div>
-<br>
 
-<div class="card shadow text-center">
-    <div class="card-body">
-        <table class="table table-sm ">
-            <thead>
-                <tr>
-                    <th scope="col">Placa</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Capacidad</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var m in Model.vehiculos)
-                    {
+<div class="row">
+    <a asp-page="/Operaciones/OpVehiculos" class="text-decoration-none"><i class="bi bi-arrow-90deg-left"> Regresar</i></a>
+    <h2 class="text-center">Nuevo Vehículo</h2>
+    <hr>
+<div class="col-md-6 mx-auto p-3 shadow">
+    <form method="post">
 
-                <tr>
-                    <td>@m.Id</td>
-                    <td>@m.Tipo</td>
-                    <td>@m.Marca</td>
-                    <td>@m.Modelo</td>
-                    <td>@m.Capacidad_pasajeros pasajeros</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalVerOpVehiculo"><i class="bi bi-eye"></i>Ver</button>
-                        <a type="button" 
-                                class="btn btn-outline-secondary btn-sm" asp-page="/Operaciones/EditVehiculo"
-                                asp-route-id = "@m.Id"><i class="bi bi-pencil-square"></i>Editar</a>
-                                <form method="POST">
-                                <button type="submit" asp-route-id ="@m.Id" asp-page-handler ="Delete" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Eliminar</button>
-                                </form>
-                    </td>
-                </tr>
-                    }
-                
-            </tbody>
-        </table>
-    </div>
-</div>
-
-
-@* <div class="modal fade" id="ModalOpVehiculo" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <h5 class="modal-title text-dark" id="exampleModalLabel">Nuevo Vehículo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form method="post">
-            <div class="modal-body">
-                <div id=opVehiculo>
-                    <label for="placa" class="form-label"><b>Placa</b></label>
+        <label for="placa" class="form-label"><b>Placa</b></label>
                     <input type="text" class="form-control border border-dark p-2" 
                     id="recipient-name"
                     name="Id"
@@ -137,23 +75,18 @@
                     {
                         <option value="@n.Id">@n.Nombre.ToString().ToUpper()</option>
                     }
-                    
-                    
                 </select>
-
-                    
-                </div>
-            </div>
-            <div class="modal-footer">
+                <div>
+                    <br>
+                    <br>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">    
                 <button type="submit" asp-page-handler="Add" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
                     Guardar</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-square"></i>
+                <button type="button" class="btn btn-secondary"><i class="bi bi-x-square"></i>
                     Cancelar</button>
+                </div>
             </div>
             </form>
-        </div>
-
-    </div>
-</div> *@
-
-
+</div>
+</div>
+        

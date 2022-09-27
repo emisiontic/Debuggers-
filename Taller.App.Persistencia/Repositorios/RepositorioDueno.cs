@@ -38,6 +38,13 @@ namespace Taller.App.Persistencia
             return this.contextDb.Duenos;
         }
 
+        public IEnumerable<Dueno> ObtenerDuenos(string id)
+        {
+           var dueno = BuscarDueno(id);
+            this.contextDb.Entry(dueno).Reload();
+            return this.contextDb.Duenos; 
+        }
+
         public Dueno BuscarDueno(string id)
         {
             return this.contextDb.Duenos.FirstOrDefault(m => m.Id == id);

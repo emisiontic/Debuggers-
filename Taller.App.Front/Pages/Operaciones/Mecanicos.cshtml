@@ -22,19 +22,10 @@
 <div class="card shadow text-center">
     <div class="card-body">
 
-        @if (Model.mecanicos.Count == 0)
-        {
-            
-            <div class="alert alert-warning" role="alert">
-                No existen mecánicos registrados
-            </div>
-        }
-        else
-        {
             <table class="table table-sm ">
                 <thead>
                     <tr>
-                        <th scope="col">Id</th>
+                        <th scope="col">Cedula</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Télefono</th>
@@ -53,22 +44,21 @@
                             <td>@m.Direccion</td>
                             <td>@m.Telefono</td>
                             <td>@m.FechaNacimiento</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalVerOpMecanico"><i class="bi bi-eye"></i>Ver</button>
-                                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#ModalOpMecanico"><i class="bi bi-pencil-square"></i>Editar</button>
-                                <button type="button" class="btn btn-outline-danger btn-sm"><i
-                                class="bi bi-x-lg"></i>Eliminar</button>
+                            <td><button type="button" 
+                                class="btn btn-outline-success btn-sm" 
+                                data-bs-toggle="modal"
+                                data-bs-target="#ModalVerOpMecanico"><i class="bi bi-eye"></i>Ver</button>
+                                <a type="button" 
+                                class="btn btn-outline-secondary btn-sm" asp-page="/Operaciones/EditMecanico"
+                                asp-route-id = "@m.Id"><i class="bi bi-pencil-square"></i>Editar</a>
+                                <form method="POST">
+                                <button type="submit" asp-route-id ="@m.Id" asp-page-handler ="Delete" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-
-
-        }
-
 
     </div>
 </div>
@@ -83,52 +73,66 @@
                 <h5 class="modal-title text-dark" id="exampleModalLabel">Nuevo Mecanico</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+        <form method="post">
             <div class="modal-body">
                 <label for="documento" class="form-label"><b>Documento de identidad</b></label>
-                <input type="text" class="form-control border border-dark p-2" id="documento"
-                    placeholder="Ingresa tu documento de identidad">
+                <input type="text"
+                 class="form-control border border-dark p-2" 
+                 id="recipient-name"
+                 name="Id"
+                 placeholder="Ingresa tu documento de identidad"
+                 >
                 <br>
                 <label for="nombres" class="form-label"><b>Nombres</b></label>
-                <input type="text" class="form-control border border-dark p-2" id="nombres"
-                    placeholder="Ingresa nombre">
-                <br>
-                <label for="apellidos" class="form-label"><b>Apellidos</b></label>
-                <input type="text" class="form-control border border-dark p-2" id="apellidos"
-                    placeholder="Ingresa apellidos">
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa nombre"
+                name="Nombre">
                 <br>
                 <label for="fecha_nacimiento" class="form-label"><b>Fecha de nacimiento</b></label>
-                <input type="date" class="form-control border border-dark p-2" id="fecha_nacimiento"
-                    placeholder="Ingresa fecha de nacimiento">
+                <input type="date" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa fecha de nacimiento"
+                name="FechaNacimiento">
                 <br>
                 <label for="direccion" class="form-label"><b>Dirección</b></label>
-                <input type="text" class="form-control border border-dark p-2" id="direccion"
-                    placeholder="Ingresa tu dirección">
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu dirección"
+                name="Direccion">
                 <br>
-                <label for="celular" class="form-label"><b>Celular</b></label>
-                <input type="text" class="form-control border border-dark p-2" id="celular"
-                    placeholder="Ingresa tu celular">
-                <br>
-                <label for="ciudad" class="form-label"><b>Ciudad</b></label>
-                <input type="text" class="form-control border border-dark p-2" id="ciudad" placeholder="Ingresa ciudad">
-                <br>
-                <label for="email" class="form-label"><b>Email</b></label>
-                <input type="email" class="form-control border border-dark p-2" id="email"
-                    placeholder="Ingresa tu email">
+                <label for="telefono" class="form-label"><b>Telefono</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu celular"
+                name="Telefono">
                 <br>
                 <label for="estudios" class="form-label"><b>Nivel de estudios</b></label>
-                <select class="form-select border border-dark p-2" id="estudios">
+                <select class="form-select border border-dark p-2" id="recipient-name" name="NivelEstudio">
                     <option selected>Seleccione</option>
                     <option value="bachiller">Bachiller</option>
                     <option value="tecnico">Técnico</option>
                     <option value="tecnologo">Tecnólogo</option>
                 </select>
+                <label for="ciudad" class="form-label"><b>Contraseña</b></label>
+                <input type="password" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name" 
+                placeholder="Ingresa ciudad"
+                name="Contrasenia">
+                <br>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                <button type="submit" asp-page-handler="Add" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
                     Guardar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-square"></i>
                     Cancelar</button>
             </div>
+        </form>
         </div>
 
     </div>
@@ -154,3 +158,10 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function setAdd(){
+        @Model.addIsOpen = true;
+    }
+</script>

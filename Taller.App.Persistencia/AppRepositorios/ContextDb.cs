@@ -12,6 +12,7 @@ namespace Taller.App.Persistencia
         public DbSet<Mecanico> Mecanicos {get; set;}
         public DbSet<Dueno> Duenos {get; set;}
         public DbSet<Vehiculo> Vehiculos {get; set;}
+        public DbSet<Revision> Revisiones {get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

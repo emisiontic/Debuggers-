@@ -1,0 +1,75 @@
+﻿@page
+@model Taller.App.Front.Pages.EditMecanicoModel
+@{
+}
+<a asp-page="/Operaciones/Mecanicos" class="text-decoration-none"><i class="bi bi-arrow-90deg-left"> Regresar</i></a>
+<form method="post">
+    
+            <div class="row justify-content-md-center">
+                <h1 class= "text-center">Editar Mecanico</h1>
+                <div class="col-md-6 off shadow rounded border border-1 p-3">
+                <label for="documento" class="form-label"><b>Documento de identidad</b></label>
+                <input type="text"
+                 class="form-control border border-dark p-2" 
+                 id="recipient-name"
+                 name="Id"
+                 placeholder="Ingresa tu documento de identidad"
+                 asp-for = "@Model.mecanicoActual.Id"
+                 readonly>
+                <br>
+                <label for="nombres" class="form-label"><b>Nombres</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa nombre"
+                asp-for = "@Model.mecanicoActual.Nombre"
+                name="Nombre">
+                <br>
+                <label for="fecha_nacimiento" class="form-label"><b>Fecha de nacimiento</b></label>
+                <input type="date" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa fecha de nacimiento"
+                asp-for = "@Model.mecanicoActual.FechaNacimiento"
+                name="FechaNacimiento">
+                <br>
+                <label for="direccion" class="form-label"><b>Dirección</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu dirección"
+                asp-for = "@Model.mecanicoActual.Direccion"
+                name="Direccion">
+                <br>
+                <label for="telefono" class="form-label"><b>Telefono</b></label>
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name"
+                placeholder="Ingresa tu celular"
+                asp-for = "@Model.mecanicoActual.Telefono"
+                name="Telefono">
+                <br>
+                <label for="estudios" class="form-label"><b>Nivel de estudios</b></label>
+                <select class="form-select border border-dark p-2" id="recipient-name" name="NivelEstudio" asp-for = "@Model.mecanicoActual.NivelEstudio">
+                    <option selected>Seleccione</option>
+                    <option value="bachiller">Bachiller</option>
+                    <option value="tecnico">Técnico</option>
+                    <option value="tecnologo">Tecnólogo</option>
+                </select>
+                <label for="contrasenia" class="form-label"><b>Contraseña</b></label >
+                <input type="text" 
+                class="form-control border border-dark p-2" 
+                id="recipient-name" 
+                placeholder="Ingresa contraseña"
+                asp-for = "@Model.mecanicoActual.Contrasenia"
+                name="Contrasenia">
+                <br>
+            
+            <div class="modal-footer">
+                <button type="submit" asp-page-handler="Edit" class="btn btn-warning text-white"><i class="bi bi-cloud-download"></i>
+                    Actualizar</button>
+                
+            </div>
+            </div>
+            </div>
+        </form>

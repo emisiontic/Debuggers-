@@ -39,6 +39,13 @@ namespace Taller.App.Persistencia
             return this.contextDb.Vehiculos;
         }
 
+        public IEnumerable<Vehiculo> ObtenerVehiculos(string id)
+        {
+            var vehiculo = BuscarVehiculo(id);
+            this.contextDb.Entry(vehiculo).Reload();
+            return this.contextDb.Vehiculos; 
+        }
+
         public Vehiculo BuscarVehiculo(string id)
         {
             return this.contextDb.Vehiculos.FirstOrDefault(m => m.Id == id);
